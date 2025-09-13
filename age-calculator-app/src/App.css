@@ -1,3 +1,13 @@
+/* Mensagem de erro */
+.age-calc-error {
+  font-family: 'Poppins', sans-serif;
+  color: #ff4d4f;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
 
 .age-calc-bg {
   min-height: 100vh;

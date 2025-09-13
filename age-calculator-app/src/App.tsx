@@ -20,25 +20,60 @@ function calculateAge(day: number, month: number, year: number) {
   return { years, months, days };
 }
 
+
 export default function App() {
   const [inputs, setInputs] = useState({ day: '', month: '', year: '' });
   const [result, setResult] = useState<{ years: number; months: number; days: number } | null>(null);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value.replace(/\D/, '') });
+    // Permite apenas números positivos
+    const value = e.target.value.replace(/[^\d]/g, '');
+    setInputs({ ...inputs, [e.target.name]: value });
+    setError('');
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { day, month, year } = inputs;
-    if (day && month && year) {
-      setResult(calculateAge(Number(day), Number(month), Number(year)));
+    const nDay = Number(day);
+    const nMonth = Number(month);
+    const nYear = Number(year);
+    const currentYear = 2025;
+
+    if (!day || !month || !year) {
+      setError('Preencha todos os campos.');
+      setResult(null);
+      return;
     }
+    if (nDay < 1 || nMonth < 1 || nYear < 1) {
+      setError('Nenhum valor pode ser negativo ou zero.');
+      setResult(null);
+      return;
+    }
+    if (nDay > 31) {
+      setError('O dia não pode ser maior que 31.');
+      setResult(null);
+      return;
+    }
+    if (nMonth > 12) {
+      setError('O mês não pode ser maior que 12.');
+      setResult(null);
+      return;
+    }
+    if (nYear > currentYear) {
+      setError('O ano não pode ser maior que o atual.');
+      setResult(null);
+      return;
+    }
+    setError('');
+    setResult(calculateAge(nDay, nMonth, nYear));
   };
 
   return (
     <div className="age-calc-bg">
       <form className="age-calc-form" onSubmit={handleSubmit} autoComplete="off">
+        {error && <div className="age-calc-error">{error}</div>}
         <div className="age-calc-inputs">
           <div className="age-calc-input-group">
             <label htmlFor="day">DAY</label>
