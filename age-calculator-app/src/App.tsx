@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import './App.css';
+import './tailwind.css';
 
 function calculateAge(day: number, month: number, year: number) {
   const today = new Date();
@@ -85,12 +85,12 @@ export default function App() {
   };
 
   return (
-    <div className="age-calc-bg">
-      <form className="age-calc-form" onSubmit={handleSubmit} autoComplete="off">
-        {error && <div className="age-calc-error">{error}</div>}
-        <div className="age-calc-inputs">
-          <div className="age-calc-input-group">
-            <label htmlFor="day">DAY</label>
+  <div className="w-screen h-screen box-border flex items-center justify-center p-24 bg-[#f0f0f0] bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/archives/assets/images/desktop-design.jpg')"}}>
+  <form className="bg-white rounded-[32px_32px_160px_32px] shadow-[0_2px_24px_0_#0001] p-12 pt-12 pb-0 max-w-[900px] min-w-[600px] min-h-[340px] w-full mx-auto relative flex flex-col items-center" onSubmit={handleSubmit} autoComplete="off">
+  {error && <div className="font-poppins text-[#ff4d4f] text-[16px] font-semibold mb-[18px] tracking-[0.5px] text-left">{error}</div>}
+  <div className="flex gap-8 mb-8 w-full">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="day" className="text-xs tracking-[3px] text-[#716f6f] font-bold mb-0.5">DAY</label>
             <input
               id="day"
               name="day"
@@ -100,10 +100,11 @@ export default function App() {
               value={inputs.day}
               onChange={handleChange}
               required
+              className="font-inherit text-[32px] font-bold border border-[#dcdcdc] rounded-lg px-4 py-2 w-[120px] outline-none text-left text-[#151515] bg-white transition-colors duration-200 focus:border-[#854dff]"
             />
           </div>
-          <div className="age-calc-input-group">
-            <label htmlFor="month">MONTH</label>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="month" className="text-xs tracking-[3px] text-[#716f6f] font-bold mb-0.5">MONTH</label>
             <input
               id="month"
               name="month"
@@ -113,10 +114,11 @@ export default function App() {
               value={inputs.month}
               onChange={handleChange}
               required
+              className="font-inherit text-[32px] font-bold border border-[#dcdcdc] rounded-lg px-4 py-2 w-[120px] outline-none text-left text-[#151515] bg-white transition-colors duration-200 focus:border-[#854dff]"
             />
           </div>
-          <div className="age-calc-input-group">
-            <label htmlFor="year">YEAR</label>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="year" className="text-xs tracking-[3px] text-[#716f6f] font-bold mb-0.5">YEAR</label>
             <input
               id="year"
               name="year"
@@ -126,33 +128,26 @@ export default function App() {
               value={inputs.year}
               onChange={handleChange}
               required
+              className="font-inherit text-[32px] font-bold border border-[#dcdcdc] rounded-lg px-4 py-2 w-[120px] outline-none text-left text-[#151515] bg-white transition-colors duration-200 focus:border-[#854dff]"
             />
           </div>
         </div>
-        <div className="age-calc-divider">
-          <button className="age-calc-btn" type="submit" aria-label="Calcular idade">
-            <div style={{
-              width: 44,
-              height: 44,
-              background: '#646cff',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              <img src={import.meta.env.BASE_URL + 'public/icon-arrow.svg'} alt="Seta para baixo" width={32} height={32} style={{display: 'block', margin: 'auto'}} />
+  <div className="w-full flex items-center m-0 relative h-[60px] mt-4 mb-0">
+          <button className="absolute right-0 top-1/2 -translate-y-1/2 bg-none border-none p-0 cursor-pointer z-20 outline-none transition-shadow duration-200 active:shadow-[0_0_0_4px_#854dff33]" type="submit" aria-label="Calcular idade">
+            <div className="w-11 h-11 bg-[#646cff] rounded-full flex items-center justify-center">
+              <img src={import.meta.env.BASE_URL + 'public/icon-arrow.svg'} alt="Seta para baixo" width={32} height={32} className="block mx-auto" />
             </div>
           </button>
         </div>
-        <div className="age-calc-result">
-          <span>
-            <b className="age-calc-number">{result ? result.years : '--'}</b> <b className="age-calc-label">years</b>
+  <div className="flex ml-[-480px] flex-col gap-0 mt-[30px] mb-10 text-[56px] font-extrabold font-poppins leading-[1.1] items-start">
+          <span className="block text-left">
+            <b className="text-[#854dff] text-[64px] font-extrabold font-poppins mr-0 tracking-[-2px]">{result ? result.years : '--'}</b> <b className="text-[#151515] text-[56px] font-extrabold font-poppins tracking-[-2px]">years</b>
           </span>
-          <span>
-            <b className="age-calc-number">{result ? result.months : '--'}</b> <b className="age-calc-label">months</b>
+          <span className="block text-left">
+            <b className="text-[#854dff] text-[64px] font-extrabold font-poppins mr-0 tracking-[-2px]">{result ? result.months : '--'}</b> <b className="text-[#151515] text-[56px] font-extrabold font-poppins tracking-[-2px]">months</b>
           </span>
-          <span>
-            <b className="age-calc-number">{result ? result.days : '--'}</b> <b className="age-calc-label">days</b>
+          <span className="block text-left">
+            <b className="text-[#854dff] text-[64px] font-extrabold font-poppins mr-0 tracking-[-2px]">{result ? result.days : '--'}</b> <b className="text-[#151515] text-[56px] font-extrabold font-poppins tracking-[-2px]">days</b>
           </span>
         </div>
       </form>
