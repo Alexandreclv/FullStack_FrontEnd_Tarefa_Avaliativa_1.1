@@ -51,10 +51,19 @@ export default function App() {
       setResult(null);
       return;
     }
-    if (nMonth === 2 && nDay > 28) {
-      setError('Em fevereiro, o dia não pode ser maior que 28.');
-      setResult(null);
-      return;
+    // Validação de fevereiro considerando ano bissexto
+    const isLeapYear = (nYear % 4 === 0 && nYear % 100 !== 0) || (nYear % 400 === 0);
+    if (nMonth === 2) {
+      if (isLeapYear && nDay > 29) {
+        setError('Em fevereiro de ano bissexto, o dia não pode ser maior que 29.');
+        setResult(null);
+        return;
+      }
+      if (!isLeapYear && nDay > 28) {
+        setError('Em fevereiro, o dia não pode ser maior que 28.');
+        setResult(null);
+        return;
+      }
     }
     if (nDay > 31) {
       setError('O dia não pode ser maior que 31.');
