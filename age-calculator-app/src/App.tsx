@@ -51,6 +51,11 @@ export default function App() {
       setResult(null);
       return;
     }
+    if (nMonth === 2 && nDay > 28) {
+      setError('Em fevereiro, o dia não pode ser maior que 28.');
+      setResult(null);
+      return;
+    }
     if (nDay > 31) {
       setError('O dia não pode ser maior que 31.');
       setResult(null);
@@ -117,22 +122,28 @@ export default function App() {
         </div>
         <div className="age-calc-divider">
           <button className="age-calc-btn" type="submit" aria-label="Calcular idade">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="22" cy="22" r="22" fill="#151515"/>
-              <path d="M22 14V30" stroke="#FFF" strokeWidth="2.5" strokeLinecap="round"/>
-              <path d="M29 23L22 30L15 23" stroke="#FFF" strokeWidth="2.5" strokeLinecap="round"/>
-            </svg>
+            <div style={{
+              width: 44,
+              height: 44,
+              background: '#646cff',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+              <img src={import.meta.env.BASE_URL + 'public/icon-arrow.svg'} alt="Seta para baixo" width={32} height={32} style={{display: 'block', margin: 'auto'}} />
+            </div>
           </button>
         </div>
         <div className="age-calc-result">
           <span>
-            <b className="age-calc-number">{result ? result.years : '--'}</b> <span className="age-calc-label">years</span>
+            <b className="age-calc-number">{result ? result.years : '--'}</b> <b className="age-calc-label">years</b>
           </span>
           <span>
-            <b className="age-calc-number">{result ? result.months : '--'}</b> <span className="age-calc-label">months</span>
+            <b className="age-calc-number">{result ? result.months : '--'}</b> <b className="age-calc-label">months</b>
           </span>
           <span>
-            <b className="age-calc-number">{result ? result.days : '--'}</b> <span className="age-calc-label">days</span>
+            <b className="age-calc-number">{result ? result.days : '--'}</b> <b className="age-calc-label">days</b>
           </span>
         </div>
       </form>
