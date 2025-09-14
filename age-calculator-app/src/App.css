@@ -11,28 +11,40 @@
 
 .age-calc-bg {
   min-height: 100vh;
-  background: #f0f0f0;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 100px;
+  background: #f0f0f0 url('/archives/assets/images/desktop-design.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .age-calc-form {
   background: #fff;
-  border-radius: 24px 24px 160px 24px;
+  border-radius: 32px 32px 160px 32px;
   box-shadow: 0 2px 24px 0 #0001;
-  padding: 48px 40px 0 40px;
-  max-width: 540px;
+  padding: 48px 80px 0 80px;
+  max-width: 900px;
+  min-width: 600px;
+  min-height: 340px;
   width: 100%;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .age-calc-inputs {
   display: flex;
   gap: 32px;
   margin-bottom: 32px;
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .age-calc-input-group {
@@ -100,15 +112,17 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  margin-top: 40px;
+  margin-top: 48px;
   margin-bottom: 40px;
   font-size: 56px;
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
   line-height: 1.1;
+  align-items: center;
 }
 .age-calc-result span {
   display: block;
+  text-align: center;
 }
 .age-calc-number {
   color: #854dff;
@@ -116,12 +130,31 @@
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
   margin-right: 8px;
+  letter-spacing: -2px;
 }
 .age-calc-label {
   color: #151515;
   font-size: 56px;
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
+  letter-spacing: -2px;
+}
+/* Ajuste para inputs ficarem mais destacados */
+.age-calc-input-group input {
+  text-align: left;
+}
+/* Ajuste para o botão ficar sobre a linha, à direita */
+.age-calc-divider {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .age-calc-form {
+    align-items: stretch;
+  }
+  .age-calc-result {
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 600px) {

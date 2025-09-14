@@ -124,18 +124,18 @@ export default function App() {
             </svg>
           </button>
         </div>
+        <div className="age-calc-result">
+          <span>
+            <b className="age-calc-number">{result ? result.years : '--'}</b> <span className="age-calc-label">years</span>
+          </span>
+          <span>
+            <b className="age-calc-number">{result ? result.months : '--'}</b> <span className="age-calc-label">months</span>
+          </span>
+          <span>
+            <b className="age-calc-number">{result ? result.days : '--'}</b> <span className="age-calc-label">days</span>
+          </span>
+        </div>
       </form>
-      <div className="age-calc-result">
-        <span>
-          <b className="age-calc-number">{result ? result.years : '--'}</b> <span className="age-calc-label">years</span>
-        </span>
-        <span>
-          <b className="age-calc-number">{result ? result.months : '--'}</b> <span className="age-calc-label">months</span>
-        </span>
-        <span>
-          <b className="age-calc-number">{result ? result.days : '--'}</b> <span className="age-calc-label">days</span>
-        </span>
-      </div>
     </div>
   );
 }
