@@ -139,7 +139,7 @@ export default function App() {
             </div>
           </button>
         </div>
-  <div className="flex ml-[-480px] flex-col gap-0 mt-[30px] mb-10 text-[56px] font-extrabold font-poppins leading-[1.1] items-start">
+  <div className="flex ml-[-480px] flex-col gap-0 mt-[30px] mb-10 text-[56px] italic font-poppins leading-[1.1] items-start">
           <span className="block text-left">
             <b className="text-[#854dff] text-[64px] font-extrabold font-poppins mr-0 tracking-[-2px]">{result ? result.years : '--'}</b> <b className="text-[#151515] text-[56px] font-extrabold font-poppins tracking-[-2px]">years</b>
           </span>
